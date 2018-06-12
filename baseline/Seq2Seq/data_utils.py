@@ -7,7 +7,8 @@ from __future__ import print_function
 
 import os
 import re
-import jieba
+#import jieba
+import NeuHub_API_JDDC
 
 from tensorflow.python.platform import gfile
 
@@ -33,7 +34,7 @@ def basic_tokenizer(sentence):
   """Very basic tokenizer: split the sentence into a list of tokens."""
   words = []
   #按词切词
-  sentence = list(jieba.cut(sentence))
+  sentence = NeuHub_API_JDDC.parse(sentence)
   for i in range(len(sentence)):
     if isinstance(sentence[i], str):
         word = str.encode(sentence[i])
